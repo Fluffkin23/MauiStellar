@@ -64,15 +64,31 @@
 	  <None Remove="Resources\Images\libra_sign.png" />
 	  <None Remove="Resources\Images\pisces_sign.png" />
 	  <None Remove="Resources\Images\scorpio_sign.png" />
+	  <None Remove="Resources\raw\Zodiac_Signs.csv" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <EmbeddedResource Include="Resources\zodiac_Signs.csv">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="itext7" Version="8.0.4" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="PDFsharp" Version="6.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\HoroscopePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\pls.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\startPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

@@ -8,7 +8,7 @@ public partial class startPage : ContentPage
 	{
         // it initializes the page's components.
         InitializeComponent();
-	}
+    }
 
     // OnAppearing is called when the page is about to appear on screen.
     protected override async void OnAppearing()
@@ -39,7 +39,7 @@ public partial class startPage : ContentPage
         //Commit the animation to the page, specifying details like duration and repeat behavior
         parentAnimation.Commit(this, "TransitionAnimation", 16, 3000, null, null);
 
-
+       
 
     }
 }

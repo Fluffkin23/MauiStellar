@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using MauiStellar2.Services;
+using Microsoft.Extensions.Logging;
 
 namespace MauiStellar2
 {
@@ -17,6 +18,7 @@ namespace MauiStellar2
 
 #if DEBUG
     		builder.Logging.AddDebug();
+           
 #endif
 
             return builder.Build();

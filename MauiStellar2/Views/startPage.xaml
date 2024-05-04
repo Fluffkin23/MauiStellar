@@ -18,6 +18,9 @@
         
 
         <!-- Planet Images -->
+        
+        
+        
         <Image
              x:Name="imgPisces"
             Opacity="0"

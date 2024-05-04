@@ -9,7 +9,7 @@
 
     <ShellContent
        
-        ContentTemplate="{DataTemplate views:startPage}"
-        Route="startPage" />
+        ContentTemplate="{DataTemplate views:pls}"
+        Route="pls" />
 
 </Shell>

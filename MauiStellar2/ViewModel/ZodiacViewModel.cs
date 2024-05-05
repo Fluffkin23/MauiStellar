@@ -3,6 +3,8 @@ using MauiStellar2.Services;
 using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using Microsoft.Maui.Dispatching;  // Ensure this namespace is included
+
 
 namespace MauiStellar2.ViewModel
 {
@@ -15,6 +17,7 @@ namespace MauiStellar2.ViewModel
         {
             _zodiacService = zodiacService;
             Task.Run(() => LoadDataAsync()); // Run loading on a background thread
+
         }
 
         private async Task LoadDataAsync()
@@ -22,15 +25,17 @@ namespace MauiStellar2.ViewModel
             try
             {
                 var signs = await _zodiacService.LoadZodiacSignsAsync("MauiStellar2.Resources.zodiac_Signs.csv");
-                // To ensure thread safety and UI thread access
                 foreach (var sign in signs)
                 {
-                    ZodiacSigns.Add(sign);
+                    // Use Dispatch to ensure updates to ObservableCollection happen on the UI thread
+                    App.Current.Dispatcher.Dispatch(() => 
+                    {
+                        ZodiacSigns.Add(sign);
+                    });
                 }
             }
             catch (Exception ex)
             {
-                // Log the exception or handle it as per your logging strategy
                 Console.WriteLine($"Error loading zodiac signs: {ex.Message}");
             }
         }

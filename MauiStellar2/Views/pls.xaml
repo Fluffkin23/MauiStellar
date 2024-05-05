@@ -36,7 +36,6 @@
             <Border
                 
                BackgroundColor="#393965"
-                Stroke="{StaticResource BorderColor}"
                 HorizontalOptions="Fill"
                 VerticalOptions="End"
                 Margin="0,0,0,0"
@@ -67,7 +66,7 @@
                         Grid.Row="1"
                         Grid.Column="0"
                         HorizontalOptions="Center"
-                        Style="{StaticResource MenuLabelStyle}" />
+                        Style="{StaticResource SubHeadline}" />
 
                     <Image
                         WidthRequest="30"
@@ -81,7 +80,7 @@
                         Grid.Row="1"
                         Grid.Column="1"
                         HorizontalOptions="Center"
-                        Style="{StaticResource MenuLabelStyle}" />
+                        Style="{StaticResource SubHeadline}" />
 
                     <Image
                         WidthRequest="30"
@@ -95,7 +94,7 @@
                         Grid.Row="1"
                         Grid.Column="2"
                         HorizontalOptions="Center"
-                        Style="{StaticResource MenuLabelStyle}" />
+                        Style="{StaticResource SubHeadline}" />
 
                 </Grid>
 

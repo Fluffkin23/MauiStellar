@@ -25,43 +25,37 @@ namespace MauiStellar2.Services
         // The method takes the file path as a parameter.
         public async Task<ObservableCollection<ZodiacSign>> LoadZodiacSignsAsync(string filepath)
         {
-            bool isFirstLine = true;
-
-            // Create an ObservableCollection to hold the zodiac signs. This collection will be returned by the method.
             ObservableCollection<ZodiacSign> zodiacSigns = new ObservableCollection<ZodiacSign>();
+            List<ZodiacSign> tempList = new List<ZodiacSign>();  // Temporary list to store signs
 
-            // Read the entire content of the CSV file asynchronously into a string. This method call will
-            // utilize the FileIOService to perform the file read operation.
             string fileContent = await _fileIOService.ReadFileAsync(filepath);
+            string[] lines = fileContent.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
 
-            // Split the file content into lines based on the new line character. Each line represents a zodiac sign entry.
-            string[] lines = fileContent.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
-
-            foreach (string line in lines) 
+            Parallel.ForEach(lines, (line, state, index) =>
             {
-                if (isFirstLine)
-                {
-                    isFirstLine = false;
-                    continue; // Skip the header row
-                }
-                // Check if the line is not null or empty to avoid processing invalid entries.
+                if (index == 0) return;  // Skip the first line
+
                 if (!string.IsNullOrEmpty(line))
                 {
-                    // Split the line into parts using the comma delimiter. Each part represents a property of the ZodiacSign.
-                    string[]parts = line.Split(';');
-
-                    // Check if there are at least 3 parts, corresponding to the expected number of properties for a ZodiacSign.
-                    if (parts.Length >= 3) 
+                    string[] parts = line.Split(';');
+                    if (parts.Length >= 5)
                     {
-                        // Create a new ZodiacSign object with the parts from the line and add it to the ObservableCollection.
-                        // This constructor initializes a new ZodiacSign with its properties set from the parts.
-                       zodiacSigns.Add(new ZodiacSign(parts[0], parts[1], parts[2], parts[3], parts[4]));
-                       Console.WriteLine($"Added: {parts[0]}, {parts[1]}, {parts[2]}"); // Debugging output
-
+                        tempList.Add(new ZodiacSign(parts[0], parts[1], parts[2], parts[3], parts[4]));
                     }
                 }
-            }
+            });
+
+            // Now update the ObservableCollection on the UI thread
+            await App.Current.Dispatcher.DispatchAsync(() =>
+            {
+                foreach (var sign in tempList)
+                {
+                    zodiacSigns.Add(sign);
+                }
+            });
+
             return zodiacSigns;
         }
+
     }
 }

@@ -2,9 +2,15 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiStellar2.Views.startPage"
+             xmlns:vm="clr-namespace:MauiStellar2.ViewModel"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="#191932"
              Padding="0">
+    <ContentPage.BindingContext>
+        <vm:StartPageViewModel/>
+    </ContentPage.BindingContext>
+
+
 
     <Grid
         IgnoreSafeArea="{OnPlatform Android=False, iOS=True}"
@@ -143,7 +149,8 @@
                      Text="Want to know and explain all things about the planets in the Milky Way galaxy?"/>
 
                 <Button
-             
+                    
+                    Command="{Binding  ExploreCommand}"
                     FontSize="22"
                     HeightRequest="52"
                     Padding="64,0"

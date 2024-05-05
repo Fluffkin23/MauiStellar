@@ -7,8 +7,15 @@
     Shell.FlyoutBehavior="Disabled"
     Title="MauiStellar2">
 
+    <!-- Start Page Shell Content -->
     <ShellContent
-       
+        
+        ContentTemplate="{DataTemplate views:startPage}"
+        Route="startPage" />
+
+    <!-- Pls Page Shell Content -->
+    <ShellContent
+        
         ContentTemplate="{DataTemplate views:pls}"
         Route="pls" />
 

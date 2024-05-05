@@ -3,20 +3,30 @@ using MauiStellar2.Services;
 using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using Microsoft.Maui.Dispatching;  // Ensure this namespace is included
+using Microsoft.Maui.Dispatching;
+using System.Windows.Input;
+using MauiStellar2.Views;  // Ensure this namespace is included
 
 
 namespace MauiStellar2.ViewModel
 {
-    public class ZodiacViewModel
+    public class ZodiacViewModel 
     {
         public ObservableCollection<ZodiacSign> ZodiacSigns { get; private set; } = new ObservableCollection<ZodiacSign>();
         private readonly ZodiacService _zodiacService;
 
+
+
+
+
         public ZodiacViewModel(ZodiacService zodiacService)
         {
             _zodiacService = zodiacService;
+
+
+
             Task.Run(() => LoadDataAsync()); // Run loading on a background thread
+
 
         }
 
@@ -39,5 +49,8 @@ namespace MauiStellar2.ViewModel
                 Console.WriteLine($"Error loading zodiac signs: {ex.Message}");
             }
         }
+
+
+
     }
 }

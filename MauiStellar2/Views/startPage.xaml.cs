@@ -1,3 +1,5 @@
+using MauiStellar2.ViewModel;
+
 namespace MauiStellar2.Views;
 
 // Define the startPage class as a page withing the application
@@ -8,6 +10,8 @@ public partial class startPage : ContentPage
 	{
         // it initializes the page's components.
         InitializeComponent();
+        BindingContext = new StartPageViewModel();
+
     }
 
     // OnAppearing is called when the page is about to appear on screen.

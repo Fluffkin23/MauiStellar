@@ -19,4 +19,10 @@
         ContentTemplate="{DataTemplate views:pls}"
         Route="pls" />
 
+    <!-- Pls Page Shell Content -->
+    <ShellContent
+    
+    ContentTemplate="{DataTemplate views:HoroscopePage}"
+    Route="HoroscopePage" />
+
 </Shell>

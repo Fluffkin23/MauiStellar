@@ -60,6 +60,7 @@
 	  <None Remove="Resources\Images\aries_sign.png" />
 	  <None Remove="Resources\Images\cancer_sign.png" />
 	  <None Remove="Resources\Images\capricon_sign.png" />
+	  <None Remove="Resources\Images\galaxyBackground.jpg" />
 	  <None Remove="Resources\Images\leo_sign.png" />
 	  <None Remove="Resources\Images\libra_sign.png" />
 	  <None Remove="Resources\Images\pisces_sign.png" />

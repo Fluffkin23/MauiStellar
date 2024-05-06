@@ -14,6 +14,7 @@ namespace MauiStellar2.ViewModel
     {
         public ObservableCollection<ZodiacSign> ZodiacSigns { get; private set; } = new ObservableCollection<ZodiacSign>();
         private readonly ZodiacService _zodiacService;
+        public ICommand NavigateToHoroscopeCommand { get; }
 
 
 
@@ -26,7 +27,7 @@ namespace MauiStellar2.ViewModel
 
 
             Task.Run(() => LoadDataAsync()); // Run loading on a background thread
-
+            NavigateToHoroscopeCommand = new Command(async () => await NavigateToHoroscopeAsync());
 
         }
 
@@ -50,6 +51,20 @@ namespace MauiStellar2.ViewModel
             }
         }
 
+        private async Task NavigateToHoroscopeAsync()
+        {
+           
+
+            try
+            {
+                // Navigate to HoroscopePage using Shell navigation
+                await Shell.Current.GoToAsync("///HoroscopePage");
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Failed to navigate: {ex.Message}");
+            }
+        }
 
 
     }

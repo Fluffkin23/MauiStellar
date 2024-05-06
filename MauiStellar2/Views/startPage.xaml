@@ -4,7 +4,7 @@
              x:Class="MauiStellar2.Views.startPage"
              xmlns:vm="clr-namespace:MauiStellar2.ViewModel"
              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="#191932"
+             BackgroundImageSource="galaxybackground.jpg"
              Padding="0">
     <ContentPage.BindingContext>
         <vm:StartPageViewModel/>

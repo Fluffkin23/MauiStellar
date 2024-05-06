@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiStellar2.Views.pls"
-             BackgroundColor="#393965">
+             BackgroundImageSource="galaxybackground.jpg">
+
 
 
     <Grid Padding="24" VerticalOptions="FillAndExpand">
@@ -14,8 +15,8 @@
 
         <!-- Header Section -->
         <VerticalStackLayout Grid.Row="0" Spacing="4" VerticalOptions="Start">
-            <Label Text="Let's Explore" FontSize="Title" TextColor="White" HorizontalOptions="Center"/>
-            <Label Text="The Milky Way Galaxy" FontSize="Subtitle" TextColor="White" HorizontalOptions="Center"/>
+            <Label Text="Let's Explore" FontSize="Large" TextColor="White" HorizontalOptions="Center"/>
+            <Label Text="The signs" FontSize="Micro" TextColor="White" HorizontalOptions="Center"/>
         </VerticalStackLayout>
 
         <!-- Collection View for Zodiac Signs -->
@@ -25,32 +26,96 @@
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame Padding="10" Margin="10" CornerRadius="20" BackgroundColor="Transparent" HasShadow="True">
+                    <Frame Padding="10" CornerRadius="20" BackgroundColor="Transparent" HasShadow="True">
                         <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
-                            <Image Source="{Binding Image}" HeightRequest="100" WidthRequest="100"/>
+                            <Image Source="{Binding Image}" HeightRequest="100" WidthRequest="100" />
                             <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="Medium" TextColor="White"/>
-                            <Label Text="{Binding Description}" FontSize="Small" TextColor="White"/>
+                            <Label Text="{Binding Description}" FontSize="Micro" TextColor="White" />
                         </StackLayout>
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <!-- Bottom Tab Bar -->
-        <Grid Grid.Row="2" BackgroundColor="#393965" ColumnDefinitions="*,*,*" Padding="0,10">
-            <!-- Individual tab items -->
-            <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center">
-                <Image Source="imgexplore.png" WidthRequest="30" HeightRequest="30"/>
-                <Label Text="Explore" TextColor="White" FontSize="Caption"/>
-            </VerticalStackLayout>
-            <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center">
-                <Image Source="imgfavorite.png" WidthRequest="30" HeightRequest="30"/>
-                <Label Text="Favorite" TextColor="White" FontSize="Caption"/>
-            </VerticalStackLayout>
-            <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center">
-                <Image Source="imgprofile.png" WidthRequest="30" HeightRequest="30"/>
-                <Label Text="Profile" TextColor="White" FontSize="Caption"/>
-            </VerticalStackLayout>
+        <!-- Bottom Tab Bar with Rounded Edges -->
+        <Grid Grid.Row="2" BackgroundColor="Transparent" Padding="0,0">
+            <!-- Bottom Tab Bar -->
+            <Border
+                Padding="16,0"
+                BackgroundColor="#393965"
+                Stroke="{StaticResource BorderColor}"
+                HorizontalOptions="Fill"
+                VerticalOptions="End"
+                Margin="0,0,0,0"
+                HeightRequest="90"
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="2">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="45"/>
+                </Border.StrokeShape>
+
+                <Grid
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Center"
+                    RowDefinitions="Auto,Auto"
+                    ColumnDefinitions="*,*,*"
+                    RowSpacing="6">
+
+                    <Image
+                        WidthRequest="30"
+                        HeightRequest="30"
+                        Source="imgexplore.png"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        HorizontalOptions="Center" />
+                    <Label
+                        Text="Explore"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        HorizontalOptions="Center"
+                        Style="{StaticResource MenuLabelStyle}" />
+
+                    <Image
+                        WidthRequest="30"
+                        HeightRequest="30"
+                        Source="imgfavorite.png"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        HorizontalOptions="Center">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NavigateToHoroscopeCommand}" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Label
+                        Text="Horoscope"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        HorizontalOptions="Center"
+                        Style="{StaticResource MenuLabelStyle}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NavigateToHoroscopeCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <Image
+                        WidthRequest="30"
+                        HeightRequest="30"
+                        Source="leo_sign.png"
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        HorizontalOptions="Center" />
+                    <Label
+                        Text="Profile"
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        HorizontalOptions="Center"
+                        Style="{StaticResource MenuLabelStyle}" />
+
+                </Grid>
+
+            </Border>
         </Grid>
 
     </Grid>

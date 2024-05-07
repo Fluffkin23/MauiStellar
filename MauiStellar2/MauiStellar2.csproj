@@ -61,10 +61,15 @@
 	  <None Remove="Resources\Images\cancer_sign.png" />
 	  <None Remove="Resources\Images\capricon_sign.png" />
 	  <None Remove="Resources\Images\galaxyBackground.jpg" />
+	  <None Remove="Resources\Images\gemini_sign.png" />
+	  <None Remove="Resources\Images\horoscope_button.png" />
 	  <None Remove="Resources\Images\leo_sign.png" />
 	  <None Remove="Resources\Images\libra_sign.png" />
 	  <None Remove="Resources\Images\pisces_sign.png" />
+	  <None Remove="Resources\Images\saggitarius_sign.png" />
 	  <None Remove="Resources\Images\scorpio_sign.png" />
+	  <None Remove="Resources\Images\taurus_sign.png" />
+	  <None Remove="Resources\Images\virgo_sign.png" />
 	  <None Remove="Resources\raw\Zodiac_Signs.csv" />
 	</ItemGroup>
 

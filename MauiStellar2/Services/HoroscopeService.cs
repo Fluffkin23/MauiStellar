@@ -14,7 +14,7 @@ namespace MauiStellar2.Services
 
         public HoroscopeService()
         {
-            _client.DefaultRequestHeaders.Add("X-RapidAPI-Key", "530834772bmsh8050c7683c3edf9p1741d2jsne026b94997e8");
+            _client.DefaultRequestHeaders.Add("X-RapidAPI-Key", "59b5872e30msha9d5bec1e389dcap11ab77jsn20dfe4d746fd");
             _client.DefaultRequestHeaders.Add("X-RapidAPI-Host", "best-daily-astrology-and-horoscope-api.p.rapidapi.com");
         }
 

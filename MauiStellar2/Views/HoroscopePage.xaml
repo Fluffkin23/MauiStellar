@@ -34,18 +34,18 @@
 
     <ScrollView VerticalOptions="FillAndExpand">
         <StackLayout Padding="30" Spacing="15">
-            <Label Text="Enter your Zodiac Sign:" FontAttributes="Bold"/>
-            <Entry x:Name="signEntry" Placeholder="e.g., Leo" HorizontalOptions="FillAndExpand"/>
+            <Label Text="Enter your Zodiac Sign:" FontAttributes="Bold" TextColor="White"/>
+            <Entry x:Name="signEntry" Placeholder="e.g., Leo" HorizontalOptions="FillAndExpand" TextColor="white"/>
             <Button Text="Get Horoscope" Command="{Binding LoadHoroscopeCommand}"
                     CommandParameter="{Binding Text, Source={x:Reference signEntry}}"/>
 
-            <Label Text="{Binding Horoscope.Number, StringFormat='Lucky Number: {0}'}" Padding="10"/>
-            <Label Text="{Binding Horoscope.Color, StringFormat='Lucky Color: {0}'}" Padding="10"/>
-            <Label Text="{Binding Horoscope.Mantra, StringFormat='Mantra: {0}'}" HorizontalOptions="FillAndExpand" LineBreakMode="WordWrap" Padding="10"/>
-            <Label Text="{Binding Horoscope.Remedy, StringFormat='Remedy: {0}'}" HorizontalOptions="FillAndExpand" LineBreakMode="WordWrap" Padding="10"/>
+            <Label Text="{Binding Horoscope.Number, StringFormat='Lucky Number: {0}'}" Padding="10" TextColor="White"/>
+            <Label Text="{Binding Horoscope.Color, StringFormat='Lucky Color: {0}'}" Padding="10" TextColor="White"/>
+            <Label Text="{Binding Horoscope.Mantra, StringFormat='Mantra: {0}'}" HorizontalOptions="FillAndExpand" LineBreakMode="WordWrap" Padding="10" TextColor="White"/>
+            <Label Text="{Binding Horoscope.Remedy, StringFormat='Remedy: {0}'}" HorizontalOptions="FillAndExpand" LineBreakMode="WordWrap" Padding="10" TextColor="White"/>
 
             <Frame Padding="10" CornerRadius="10" BorderColor="Gray" HasShadow="True" BackgroundColor="Transparent">
-                <Label Text="{Binding Horoscope.Prediction}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"/>
+                <Label Text="{Binding Horoscope.Prediction}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" TextColor="White"/>
             </Frame>
             
             <Button Text="Download as CSV" Command="{Binding SaveAsCsvCommand}"/>

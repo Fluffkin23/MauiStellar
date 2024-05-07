@@ -59,27 +59,13 @@
                     HorizontalOptions="Fill"
                     VerticalOptions="Center"
                     RowDefinitions="Auto,Auto"
-                    ColumnDefinitions="*,*,*"
+                    ColumnDefinitions="*"
                     RowSpacing="6">
 
                     <Image
                         WidthRequest="30"
                         HeightRequest="30"
-                        Source="imgexplore.png"
-                        Grid.Row="0"
-                        Grid.Column="0"
-                        HorizontalOptions="Center" />
-                    <Label
-                        Text="Explore"
-                        Grid.Row="1"
-                        Grid.Column="0"
-                        HorizontalOptions="Center"
-                        Style="{StaticResource MenuLabelStyle}" />
-
-                    <Image
-                        WidthRequest="30"
-                        HeightRequest="30"
-                        Source="imgfavorite.png"
+                        Source="horoscope_button.png"
                         Grid.Row="0"
                         Grid.Column="1"
                         HorizontalOptions="Center">
@@ -99,19 +85,6 @@
                         </Label.GestureRecognizers>
                     </Label>
 
-                    <Image
-                        WidthRequest="30"
-                        HeightRequest="30"
-                        Source="leo_sign.png"
-                        Grid.Row="0"
-                        Grid.Column="2"
-                        HorizontalOptions="Center" />
-                    <Label
-                        Text="Profile"
-                        Grid.Row="1"
-                        Grid.Column="2"
-                        HorizontalOptions="Center"
-                        Style="{StaticResource MenuLabelStyle}" />
 
                 </Grid>
 

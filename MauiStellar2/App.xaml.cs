@@ -15,11 +15,10 @@ namespace MauiStellar2
         {
             var window = base.CreateWindow(activationState);
 
-            const int newWidth = 800;
-            const int newHeight = 600;
+            const int newWidth = 500;
+            const int newHeight = 800;
 
-            window.X = 100;
-            window.Y = 200;
+            
 
             window.Width = newWidth;
             window.Height = newHeight;
@@ -29,6 +28,7 @@ namespace MauiStellar2
 
             window.MaximumHeight = newHeight;
             window.MaximumWidth = newWidth;
+
 
             return window;
 

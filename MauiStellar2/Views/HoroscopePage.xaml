@@ -2,8 +2,14 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiStellar2.Views.HoroscopePage"
-             BackgroundImageSource="galaxyBackground.jpg">
+             BackgroundImageSource="galaxybackground.jpg">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Back"
+                 Priority="0"
+                 Order="Primary"
+                 Command="{Binding GoBackCommand}" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style TargetType="Label">

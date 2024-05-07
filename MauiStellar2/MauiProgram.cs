@@ -1,5 +1,6 @@
 ﻿using MauiStellar2.Services;
 using Microsoft.Extensions.Logging;
+using Microsoft.Maui.Hosting;
 
 namespace MauiStellar2
 {
@@ -16,8 +17,10 @@ namespace MauiStellar2
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            
+
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
            
 #endif
 

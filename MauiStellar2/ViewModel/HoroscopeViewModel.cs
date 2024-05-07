@@ -19,6 +19,7 @@ namespace MauiStellar2.ViewModel
         public ICommand LoadHoroscopeCommand { get; private set; }  // ICommand property
         public ICommand SaveAsCsvCommand { get; private set; }
         public ICommand SaveAsXamlCommand { get; private set; }
+        public ICommand GoBackCommand { get; }
 
 
 
@@ -39,6 +40,8 @@ namespace MauiStellar2.ViewModel
             LoadHoroscopeCommand = new Command<string>(async (sign) => await LoadHoroscope(sign));
             SaveAsCsvCommand = new Command(() => SaveHoroscope("CSV", Horoscope));
             SaveAsXamlCommand = new Command(() => SaveHoroscope("XAML", Horoscope));
+            GoBackCommand = new Command(async () => await GoBack());
+
 
 
         }
@@ -96,10 +99,23 @@ namespace MauiStellar2.ViewModel
         }
 
 
-
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private async Task GoBack()
+        {
+
+            try
+            {
+                // Navigate to HoroscopePage using Shell navigation
+                await Shell.Current.GoToAsync("///pls");
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Failed to navigate: {ex.Message}");
+            }
         }
     }
 }

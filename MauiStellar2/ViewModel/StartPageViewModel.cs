@@ -14,6 +14,7 @@ namespace MauiStellar2.ViewModel
         public StartPageViewModel()
         {
             ExploreCommand = new Command(OnExploreExecuted);
+            
         }
 
         private async void OnExploreExecuted()

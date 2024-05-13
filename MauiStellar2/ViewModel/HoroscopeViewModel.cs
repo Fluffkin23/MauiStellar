@@ -16,12 +16,10 @@ namespace MauiStellar2.ViewModel
     {
         private Horoscope _horoscope;
         private HoroscopeService _service = new HoroscopeService();
-        public ICommand LoadHoroscopeCommand { get; private set; }  // ICommand property
-        public ICommand SaveAsCsvCommand { get; private set; }
-        public ICommand SaveAsXamlCommand { get; private set; }
+        public ICommand LoadHoroscopeCommand { get; set; }  
+        public ICommand SaveAsCsvCommand { get; set; }
+        public ICommand SaveAsXamlCommand { get; set; }
         public ICommand GoBackCommand { get; }
-
-
 
         public Horoscope Horoscope
         {
@@ -30,32 +28,25 @@ namespace MauiStellar2.ViewModel
             {
                 _horoscope = value;
                 OnPropertyChanged();
-               
             }
         }
 
         public HoroscopeViewModel()
         {
             // Initialize the command and link it to LoadHoroscope method
-            LoadHoroscopeCommand = new Command<string>(async (sign) => await LoadHoroscope(sign));
-            SaveAsCsvCommand = new Command(() => SaveHoroscope("CSV", Horoscope));
-            SaveAsXamlCommand = new Command(() => SaveHoroscope("XAML", Horoscope));
-            GoBackCommand = new Command(async () => await GoBack());
-
-
-
+            LoadHoroscopeCommand = new Command<string>(async (sign) => await loadHoroscope(sign));
+            SaveAsCsvCommand = new Command(() => saveHoroscope("CSV", Horoscope));
+            SaveAsXamlCommand = new Command(() => saveHoroscope("XAML", Horoscope));
+            GoBackCommand = new Command(async () => await goBack());
         }
 
-        public async Task LoadHoroscope(string sign)
+        public async Task loadHoroscope(string sign)
         {
-            Horoscope = await _service.GetHoroscope(sign);
-            
-
+            Horoscope = await _service.getHoroscope(sign);
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
 
-        public static string ToCsv(Horoscope horoscope)
+        public static string toCsv(Horoscope horoscope)
         {
             var csv = new StringBuilder();
             csv.AppendLine("Status,Prediction,Number,Color,Mantra,Remedy");
@@ -63,17 +54,17 @@ namespace MauiStellar2.ViewModel
             return csv.ToString();
         }
 
-        public static string ToXaml(Horoscope horoscope)
+        public static string toXaml(Horoscope horoscope)
         {
             var xaml = $"<Horoscope xmlns=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\" Status=\"{horoscope.Status}\" Prediction=\"{horoscope.Prediction}\" Number=\"{horoscope.Number}\" Color=\"{horoscope.Color}\" Mantra=\"{horoscope.Mantra}\" Remedy=\"{horoscope.Remedy}\"/>";
             return xaml;
         }
 
-        public void SaveHoroscope(string format, Horoscope horoscope)
+        public void saveHoroscope(string format, Horoscope horoscope)
         {
             ThreadPool.QueueUserWorkItem(_ =>
             {
-                string content = format == "CSV" ? ToCsv(horoscope) : ToXaml(horoscope);
+                string content = format == "CSV" ? toCsv(horoscope) : toXaml(horoscope);
                 string filename = $"horoscope.{format.ToLower()}";
 
                 // Get the app-specific directory path that is suitable for each platform
@@ -104,18 +95,20 @@ namespace MauiStellar2.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        private async Task GoBack()
+        private async Task goBack()
         {
 
             try
             {
                 // Navigate to HoroscopePage using Shell navigation
-                await Shell.Current.GoToAsync("///pls");
+                await Shell.Current.GoToAsync("///ZodiaSignView");
             }
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine($"Failed to navigate: {ex.Message}");
             }
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

@@ -10,19 +10,19 @@
     <!-- Start Page Shell Content -->
     <ShellContent
         
-        ContentTemplate="{DataTemplate views:startPage}"
-        Route="startPage" />
+        ContentTemplate="{DataTemplate views:StartPageView}"
+        Route="StartPageView" />
 
     <!-- Pls Page Shell Content -->
     <ShellContent
         
-        ContentTemplate="{DataTemplate views:pls}"
-        Route="pls" />
+        ContentTemplate="{DataTemplate views:ZodiacSignView}"
+        Route="ZodiacSignView" />
 
     <!-- Pls Page Shell Content -->
     <ShellContent
     
-    ContentTemplate="{DataTemplate views:HoroscopePage}"
-    Route="HoroscopePage" />
+    ContentTemplate="{DataTemplate views:HoroscopePageView}"
+    Route="HoroscopePageView" />
 
 </Shell>

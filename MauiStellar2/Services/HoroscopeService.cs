@@ -18,7 +18,7 @@ namespace MauiStellar2.Services
             _client.DefaultRequestHeaders.Add("X-RapidAPI-Host", "best-daily-astrology-and-horoscope-api.p.rapidapi.com");
         }
 
-        public async Task<Horoscope> GetHoroscope(string zodiacSign)
+        public async Task<Horoscope> getHoroscope(string zodiacSign)
         {
             string url = $"https://best-daily-astrology-and-horoscope-api.p.rapidapi.com/api/Detailed-Horoscope/?zodiacSign={zodiacSign}";
             HttpResponseMessage response = await _client.GetAsync(url);

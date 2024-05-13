@@ -23,12 +23,12 @@ namespace MauiStellar2.Services
         // Public asynchronous method to load zodiac sign from a CSV file.
         // It returns an ObservableCollection of ZodiacSign objects which can be used for data binding in MVVM.
         // The method takes the file path as a parameter.
-        public async Task<ObservableCollection<ZodiacSign>> LoadZodiacSignsAsync(string filepath)
+        public async Task<ObservableCollection<ZodiacSign>> loadZodiacSignsAsync(string filepath)
         {
             ObservableCollection<ZodiacSign> zodiacSigns = new ObservableCollection<ZodiacSign>();
             List<ZodiacSign> tempList = new List<ZodiacSign>();  // Temporary list to store signs
 
-            string fileContent = await _fileIOService.ReadFileAsync(filepath);
+            string fileContent = await _fileIOService.readFileAsync(filepath);
             string[] lines = fileContent.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
 
             Parallel.ForEach(lines, (line, state, index) =>

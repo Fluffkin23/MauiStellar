@@ -89,13 +89,25 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\HoroscopePage.xaml">
+	  <Compile Update="Views\HoroscopePageView.xaml.cs">
+	    <DependentUpon>HoroscopePageView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\ZodiacSignView.xaml.cs">
+	    <DependentUpon>ZodiacSignView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\StartPageView.xaml.cs">
+	    <DependentUpon>StartPageView.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\HoroscopePageView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\pls.xaml">
+	  <MauiXaml Update="Views\ZodiacSignView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\startPage.xaml">
+	  <MauiXaml Update="Views\StartPageView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

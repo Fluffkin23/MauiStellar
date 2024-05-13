@@ -10,7 +10,7 @@ namespace MauiStellar2.Services
 {
     public class FileIOService
     {
-        public async Task<String> ReadFileAsync(string filePath)
+        public async Task<String> readFileAsync(string filePath)
         {
             var assembly = IntrospectionExtensions.GetTypeInfo(typeof(App)).Assembly;
             using (Stream stream = assembly.GetManifestResourceStream(filePath))

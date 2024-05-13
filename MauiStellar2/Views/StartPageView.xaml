@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiStellar2.Views.startPage"
+             x:Class="MauiStellar2.Views.StartPageView"
              xmlns:vm="clr-namespace:MauiStellar2.ViewModel"
              NavigationPage.HasNavigationBar="False"
              BackgroundImageSource="galaxybackground.jpg"
@@ -9,9 +9,6 @@
     <ContentPage.BindingContext>
         <vm:StartPageViewModel/>
     </ContentPage.BindingContext>
-
-
-
     <Grid
         IgnoreSafeArea="{OnPlatform Android=False, iOS=True}"
         Padding="0"
@@ -21,25 +18,19 @@
         VerticalOptions="Fill"
         HorizontalOptions="Fill"
         BackgroundColor="Transparent">
-        
-
-        <!-- Planet Images -->
-        
-        
-        
+        <!-- Zodiac Images -->
         <Image
-             x:Name="imgPisces"
+            x:Name="imgPisces"
             Opacity="0"
             Source="pisces_sign.png"
-             VerticalOptions="Start"
-             HorizontalOptions="Center"
-             TranslationX="-48"
-             TranslationY="148"
-             WidthRequest="96"
-             HeightRequest="96"/>
-
+            VerticalOptions="Start"
+            HorizontalOptions="Center"
+            TranslationX="-48"
+            TranslationY="148"
+            WidthRequest="96"
+            HeightRequest="96"/>
         <Image
-             x:Name="imgAquarius"
+            x:Name="imgAquarius"
             Opacity="0"
             Source="aquarius_sign.png"
             VerticalOptions="Center"
@@ -48,108 +39,95 @@
             TranslationY="-64"
             WidthRequest="200"
             HeightRequest="200"/>
-
         <Image
-             x:Name="imgAries"
+            x:Name="imgAries"
             Opacity="0"
-             Source="aries_sign.png"
+            Source="aries_sign.png"
             VerticalOptions="Center"
             HorizontalOptions="Center"
             TranslationX="3"
             TranslationY="-10"
             WidthRequest="200"
             HeightRequest="200"/>
-
         <Image
-             x:Name="imgCancer"
+            x:Name="imgCancer"
             Opacity="0"
-             Source="cancer_sign.png"
+            Source="cancer_sign.png"
             VerticalOptions="Start"
             HorizontalOptions="Start"
             TranslationX="-10"
             TranslationY="9"
             WidthRequest="140"
             HeightRequest="140"/>
-
-
         <Image
-             x:Name="imgCapricon"
-             Opacity="0"
-             Source="capricon_sign.png"
+            x:Name="imgCapricon"
+            Opacity="0"
+            Source="capricon_sign.png"
             VerticalOptions="Start"
             HorizontalOptions="Center"
             TranslationX="18"
             TranslationY="50"
             WidthRequest="100"
             HeightRequest="100"/>
-
         <Image
-             x:Name="imgLeo"
+            x:Name="imgLeo"
             Opacity="0"
-             Source="leo_sign.png"
+            Source="leo_sign.png"
             VerticalOptions="Start"
             HorizontalOptions="Center"
             TranslationX="84"
             TranslationY="150"
             WidthRequest="100"
             HeightRequest="100"/>
-
         <Image
-             x:Name="imgLibra"
+            x:Name="imgLibra"
             Opacity="0"
-             Source="libra_sign.png"
+            Source="libra_sign.png"
             VerticalOptions="Center"
             HorizontalOptions="End"
             TranslationX="100"
             TranslationY="-72"
             WidthRequest="200"
             HeightRequest="200"/>
-
         <Image
-             x:Name="imgScorpio"
+            x:Name="imgScorpio"
             Opacity="0"
-             Source="scorpio_sign.png"
+            Source="scorpio_sign.png"
             VerticalOptions="Start"
             HorizontalOptions="End"
             TranslationX="10"
             TranslationY="2"
             WidthRequest="100"
             HeightRequest="100"/>
-
         <!-- Intro Box -->
         <Border
-             x:Name="frmIntro"
+            x:Name="frmIntro"
             Opacity="0"
-             Padding="24,32"
-             BackgroundColor="#F1EFF0"
-             Stroke="Transparent"
-             HorizontalOptions="Fill"
-             VerticalOptions="End"
-             Margin="20">   
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="24"/>
-                </Border.StrokeShape>
-
-                <VerticalStackLayout
-                    Spacing="16">
-
+            Padding="24,32"
+            BackgroundColor="#F1EFF0"
+            Stroke="Transparent"
+            HorizontalOptions="Fill"
+            VerticalOptions="End"
+            Margin="20">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="24"/>
+            </Border.StrokeShape>
+            <VerticalStackLayout
+                Spacing="16">
                 <Label
-                     HorizontalOptions="Center"
-                     HorizontalTextAlignment="Center"
-                     Style="{StaticResource Headline}"
-                     TextColor="#252525"
-                    
-                     Text="Hello!"/>
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    Style="{StaticResource Headline}"
+                    TextColor="#252525" 
+                    Text="Hello!"/>
                 <Label
-                     HorizontalOptions="Center"
-                     HorizontalTextAlignment="Center"
-                     LineBreakMode="WordWrap"
-                     Style="{StaticResource SubHeadline}"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    LineBreakMode="WordWrap"
+                    Style="{StaticResource SubHeadline}"
                     TextColor="#252525"
-                     Text="Want to know and explain all things about the planets in the Milky Way galaxy?"/>
-
-                <Button
-                    
+                    Text="Want to know and explain all things about the zodiac signs ?"/>
+                <Button              
                     Command="{Binding  ExploreCommand}"
                     FontSize="22"
                     HeightRequest="52"
@@ -162,16 +140,7 @@
                     Text="Explore Now"
                     HorizontalOptions="Center"
                     Margin="0,12,0,6"/>
-                        
-            
-
-                </VerticalStackLayout>
-
+            </VerticalStackLayout>
         </Border>
-
-
-
     </Grid>
-
-
 </ContentPage>

@@ -3,10 +3,10 @@ using MauiStellar2.ViewModel;
 namespace MauiStellar2.Views;
 
 // Define the startPage class as a page withing the application
-public partial class startPage : ContentPage
+public partial class StartPageView : ContentPage
 {
     // Constructor for the StartPage class.
-    public startPage()
+    public StartPageView()
 	{
         // it initializes the page's components.
         InitializeComponent();

@@ -2,11 +2,11 @@ using MauiStellar2.ViewModel;
 
 namespace MauiStellar2.Views;
 
-public partial class HoroscopePage : ContentPage
+public partial class HoroscopePageView : ContentPage
 {
     private  HoroscopeViewModel _viewModel;
 
-    public HoroscopePage()
+    public HoroscopePageView()
 	{
         InitializeComponent();
 

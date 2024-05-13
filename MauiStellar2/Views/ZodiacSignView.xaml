@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiStellar2.Views.pls"
+             x:Class="MauiStellar2.Views.ZodiacSignView"
              BackgroundImageSource="galaxybackground.jpg">
-
-
 
     <Grid Padding="24" VerticalOptions="FillAndExpand">
         <Grid.RowDefinitions>
@@ -12,13 +10,11 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="90"/>
         </Grid.RowDefinitions>
-
         <!-- Header Section -->
         <VerticalStackLayout Grid.Row="0" Spacing="4" VerticalOptions="Start">
             <Label Text="Let's Explore" FontSize="Large" TextColor="White" HorizontalOptions="Center"/>
             <Label Text="The signs" FontSize="Micro" TextColor="White" HorizontalOptions="Center"/>
         </VerticalStackLayout>
-
         <!-- Collection View for Zodiac Signs -->
         <CollectionView Grid.Row="1" ItemsSource="{Binding ZodiacSigns}" Margin="0,10">
             <CollectionView.ItemsLayout>
@@ -36,7 +32,6 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-
         <!-- Bottom Tab Bar with Rounded Edges -->
         <Grid Grid.Row="2" BackgroundColor="Transparent" Padding="0,0">
             <!-- Bottom Tab Bar -->
@@ -54,14 +49,12 @@
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="45"/>
                 </Border.StrokeShape>
-
                 <Grid
                     HorizontalOptions="Fill"
                     VerticalOptions="Center"
                     RowDefinitions="Auto,Auto"
                     ColumnDefinitions="*"
                     RowSpacing="6">
-
                     <Image
                         WidthRequest="30"
                         HeightRequest="30"
@@ -73,7 +66,6 @@
                             <TapGestureRecognizer Command="{Binding NavigateToHoroscopeCommand}" />
                         </Image.GestureRecognizers>
                     </Image>
-
                     <Label
                         Text="Horoscope"
                         Grid.Row="1"
@@ -84,13 +76,8 @@
                             <TapGestureRecognizer Command="{Binding NavigateToHoroscopeCommand}" />
                         </Label.GestureRecognizers>
                     </Label>
-
-
                 </Grid>
-
             </Border>
         </Grid>
-
     </Grid>
-
 </ContentPage>

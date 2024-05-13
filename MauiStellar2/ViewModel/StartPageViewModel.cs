@@ -21,7 +21,7 @@ namespace MauiStellar2.ViewModel
         {
             try
             {
-                await Shell.Current.GoToAsync("///pls");
+                await Shell.Current.GoToAsync("///ZodiacSignView");
             }
             catch (Exception ex)
             {

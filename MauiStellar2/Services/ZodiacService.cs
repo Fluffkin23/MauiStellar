@@ -29,8 +29,11 @@ namespace MauiStellar2.Services
             List<ZodiacSign> tempList = new List<ZodiacSign>();  // Temporary list to store signs
 
             string fileContent = await _fileIOService.readFileAsync(filepath);
+
+            // Split the file content into lines, removing empty lines.
             string[] lines = fileContent.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
 
+            // Process each line in parallel
             Parallel.ForEach(lines, (line, state, index) =>
             {
                 if (index == 0) return;  // Skip the first line
@@ -40,12 +43,13 @@ namespace MauiStellar2.Services
                     string[] parts = line.Split(';');
                     if (parts.Length >= 5)
                     {
+                        // Create a new ZodiacSign object and add it to the temporary list.
                         tempList.Add(new ZodiacSign(parts[0], parts[1], parts[2], parts[3], parts[4]));
                     }
                 }
             });
 
-            // Now update the ObservableCollection on the UI thread
+            // Update the ObservableCollection on the UI thread after all lines have been processed.
             await App.Current.Dispatcher.DispatchAsync(() =>
             {
                 foreach (var sign in tempList)
